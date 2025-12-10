@@ -9,27 +9,40 @@ use Ceres\Widgets\Helper\WidgetTypes;
 
 class HintBoxWidget extends BaseWidget
 {
+    /**
+     * Verweis auf das Twig-Template:
+     * resources/views/Widgets/HintBoxWidget.twig
+     */
     protected $template = "HintBoxWidget::Widgets.HintBoxWidget";
 
+    /**
+     * Basisdaten für den ShopBuilder (Name, Kategorie usw.)
+     */
     public function getData(): array
     {
         return WidgetDataFactory::make("HintBoxWidget::HintBox")
-            ->withLabel("Widget.hintBoxLabel")
-            ->withPreviewImageUrl("/images/hintbox-widget.svg")
-            ->withType(WidgetTypes::STATIC)
-            ->withCategories(["text"])
+            ->withLabel("Widget.hintBoxLabel")                     // Text aus widgets.properties
+            ->withPreviewImageUrl("/images/hintbox-widget.svg")    // optional
+            ->withType(WidgetTypes::STATIC)                        // Content-Widget
+            ->withCategories(["text"])                             // Tab "Text" im ShopBuilder
             ->withPosition(2100)
             ->toArray();
     }
 
+    /**
+     * Einstellungen für das Widget im ShopBuilder
+     */
     public function getSettings(): array
     {
+        /** @var WidgetSettingsFactory $settings */
         $settings = pluginApp(WidgetSettingsFactory::class);
 
+        // Standard-Gruppen von Ceres
         $settings->createCustomClass();
         $settings->createAppearance();
         $settings->createSpacing();
 
+        // Eigene Felder:
         $settings->createText("headline", [
             "name"    => "Widget.hintBoxHeadlineLabel",
             "tooltip" => "Widget.hintBoxHeadlineTooltip"
