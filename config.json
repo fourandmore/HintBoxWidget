@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "menu": {
-    "Config.HintBoxTab": {
-      "label": "Config.HintBoxTabLabel",
+    "global": {
+      "label": "Config.global",
       "formFields": {}
     }
   }
