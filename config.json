@@ -1,0 +1,9 @@
+{
+  "formatVersion": 1,
+  "menu": {
+    "global": {
+      "label": "Config.global",
+      "formFields": {}
+    }
+  }
+}
