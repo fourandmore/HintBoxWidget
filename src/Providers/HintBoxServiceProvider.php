@@ -15,7 +15,7 @@ class HintBoxServiceProvider extends ServiceProvider
 
     public function boot(ContentWidgetRepositoryContract $widgetRepository)
     {
-        // HintBox-Widget beim ShopBuilder registrieren
+        // Widget beim ShopBuilder registrieren
         $widgetRepository->registerWidget(HintBoxWidget::class);
     }
 }
